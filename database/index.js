@@ -60,7 +60,7 @@ for (var i = 0; i < restaurantLength; i++) {
     restaurant.photos.push(photo)
   }
 
-  //saves each new restaurant the DB
+  //saves each new restaurant the db
   const newRestaurant = new Restaurant(restaurant)
   newRestaurant.save(err => {
     if (err) return console.log("ERROR IN SAVE RESTAURANT===" + err)

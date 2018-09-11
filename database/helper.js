@@ -1,6 +1,6 @@
 const  model  = require('./index.js')
 
-//function to help get reviews
+//function to help get review
 const getReviews = (id, callback) => {
     model.Restaurant.findById(id, (err, data) => {
       if (err) callback(err, null);
