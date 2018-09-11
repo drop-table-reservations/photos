@@ -15,7 +15,7 @@ app.get('/restaurants/:restaurantId/photos', (req, res) => {
     helperFunc.getReviews(req.params.restaurantId, (err, data) => {
       if (err) return res.status(500).send('UNABLE TO GET ' + err);
     //   console.log('THIS IS DATA======='+ data)
-      //data is returning an array of obj
+      //data is returning an array of obj,
       return res.status(200).send(data);
     });
   });
