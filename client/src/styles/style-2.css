@@ -1,0 +1,55 @@
+.photo0 { grid-area: photo0; }
+.photo1 { grid-area: photo1; }
+
+.wrapper {
+  height: 215px;
+  width: 610px;
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: repeat(2, 305px);
+  grid-template-rows: repeat(1, 215px);
+  grid-template-areas:  'photo0 photo1'
+}
+  
+.photo0 > img, .photo1 > img {
+  object-fit: cover;
+  width: 305px;
+  height: 250px;
+}
+
+.photo2 {
+  display: none;
+}
+.photo3 {
+  display: none;
+}
+
+.photo4 {
+  display: none;
+}
+
+.photo5 {
+  display: none;
+
+}
+.photo6 {
+  display: none;
+}
+
+.photo7 {
+  display: none;
+}
+
+.photo8 {
+  display: none;
+}
+
+.photo9 {
+  display: none;
+}
+.photo10 {
+  display: none;
+}
+.photo11 {
+  display: none;
+}
