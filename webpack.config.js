@@ -13,11 +13,17 @@ module.exports = {
       {
         test : /\.jsx?/,
         include : SRC_DIR,
-        loader : 'babel-loader',      
+        exclude: /node_modules/,
+        use : 'babel-loader',      
         query: {
-          presets: ['react', 'es2015']
+          babelrc: false,
+          presets: ['@babel/react', '@babel/preset-env'],
+          // plugins: ['@babel/proposal-class-properties']
         }
       }
     ]
-  }
+  },
+  resolve: {
+    extensions: ['*', '.wasm', '.mjs', '.js', '.json', '.jsx'],
+  },
 };
