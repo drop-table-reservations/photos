@@ -11,7 +11,6 @@ class App extends React.Component {
     this.state = {
       photos: []
     }
-    console.log(this.state.photos)
   }
 
   componentDidMount() {
