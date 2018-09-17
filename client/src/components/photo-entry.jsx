@@ -11,13 +11,9 @@ class PhotoEntry extends React.Component {
 
   render() {
     return (
-        // <li>
-        //   <a>
-            <div className={'photo' + this.props.photo.id}>
-              <img id="photos" src={this.props.photo.url}></img>
-            </div>
-        //   </a>
-        // </li>
+      <div className={'photo' + this.props.photo.id}>
+        <img id="photos" src={this.props.photo.url}></img>
+      </div>
     )
   }
 }
