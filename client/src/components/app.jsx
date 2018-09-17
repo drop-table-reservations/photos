@@ -1,8 +1,8 @@
 import React from 'react';
-import dummy from '../../../dummyData.js'
 import PhotoList from './photo-list.jsx'
 import axios from 'axios'
 import Header from './header.jsx'
+import Carousel from './carousel.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -24,13 +24,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='photo-gallery-body'>
         <div>
           <Header Photos={this.state.photos}/>
         </div>
         <div>
           <PhotoList Photos={this.state.photos} />
         </div>
+        {/* <Carousel Photos={this.state.photos} /> */}
       </div>
     )
   }
