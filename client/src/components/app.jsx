@@ -25,10 +25,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-      </div>
-      <div>
+        <div>
+          <Header Photos={this.state.photos}/>
+        </div>
+        <div>
           <PhotoList Photos={this.state.photos} />
+        </div>
       </div>
     )
   }

@@ -4,6 +4,7 @@ const helperFunc = require('../database/helper.js')
 const bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/../client/dist'))
+app.use(express.static(__dirname + '/../client/src/styles'))
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 
