@@ -1,3 +1,28 @@
+.photo-gallery-body {
+  width: 618px;
+}
+
+.header-view-more {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: auto 0 0 0;
+  color: #da3743;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header-photo {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #333;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 16px;
+  margin: 0 0 16px 0;
+  display: flex;
+  justify-content: space-between;
+}
 
 .photo0 { grid-area: photo0; }
 .photo1 { grid-area: photo1; }
@@ -8,7 +33,6 @@
 .photo6 { grid-area: photo6; }
 .photo7 { grid-area: photo7; }
 .photo8 { grid-area: photo8; }
-
 
 .wrapper {
   height: 280px;
@@ -53,4 +77,33 @@
 }
 .photo11 {
   display: none;
+}
+
+html, body, #container, .carousel {
+	height:100%;
+	margin: 0;
+	width: 100%;
+}
+
+
+.image-slide > img{
+	height: 100%;
+	width: 100%;
+	transition: background-image .3s ease-in-out;
+}
+
+.slide-arrow {
+	color: blue;
+	cursor: pointer;
+	font-size: 2rem;
+	position: fixed;
+	top: 50%;
+}
+
+.slide-arrow.right {
+	right: 1rem;
+}
+
+.slide-arrow.left {
+	left: 1rem;
 }

@@ -1,3 +1,29 @@
+.photo-gallery-body {
+  width: 618px;
+}
+
+.header-view-more {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: auto 0 0 0;
+  color: #da3743;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header-photo {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #333;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 16px;
+  margin: 0 0 16px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
 .photo0 { grid-area: photo0; }
 .photo1 { grid-area: photo1; }
 .photo2 { grid-area: photo2; }
