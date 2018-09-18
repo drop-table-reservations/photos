@@ -1,20 +1,19 @@
 import React from 'react';
+import axios from 'axios';
 import Arrow from './arrow.jsx';
 import ImageSlide from './image-slide.jsx';
-import axios from 'axios';
-import dummy from '../../../dummyData.js'
 
 
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
 
-  
+
     this.state = {
       // photos: this.props.urls,
       photos: [],
-      currentImageIndex: 0
-    }
+      currentImageIndex: 0,
+    };
     // console.log(this.state.urls)
     // console.log("THIS IS PROPS==", this.props)
     this.nextSlide = this.nextSlide.bind(this);
@@ -25,12 +24,12 @@ class Carousel extends React.Component {
     console.log('successful mount');
     axios.get('/restaurants/5b9869ddad84de5857f7783d/photos')
       .then((data) => {
-        console.log('what is this', data.data)
+        console.log('what is this', data.data);
         this.setState({
           photos: data.data,
         });
         console.log('test');
-        console.log("THIS IS PHOTO===" + this.state.photos[this.state.currentImageIndex].url)
+        console.log(`THIS IS PHOTO===${this.state.photos[this.state.currentImageIndex].url}`);
       });
   }
 
@@ -41,8 +40,8 @@ class Carousel extends React.Component {
     const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
 
     this.setState({
-      currentImageIndex: index
-    })
+      currentImageIndex: index,
+    });
   }
 
   nextSlide() {
@@ -52,31 +51,28 @@ class Carousel extends React.Component {
     const index = shouldResetIndex ? 0 : currentImageIndex + 1;
 
     this.setState({
-      currentImageIndex: index
-    })
+      currentImageIndex: index,
+    });
   }
 
   render() {
-    const photos = this.state.photos;
-    let render;
-    if (photos) {
-      render = <ImageSlide url={this.state.photos[this.state.currentImageIndex].url} />
-    } 
     return (
       <div className="carousel">
         <Arrow
           direction="left"
           clickFunction={this.previousSlide}
-          glyph="&#9664;" />
+          glyph="&#9664;"
+        />
         <ImageSlide url={this.state.photos[this.state.currentImageIndex].url} />
         {/* <ImageSlide url={url} /> */}
 
         <Arrow
           direction="right"
           clickFunction={this.nextSlide}
-          glyph="&#9654;" />
+          glyph="&#9654;"
+        />
       </div>
-    )
+    );
   }
 }
 
