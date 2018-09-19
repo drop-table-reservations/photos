@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
   height: 280px;
   width: 610px;
   display: grid;
-  grid-gap: 1px;
+  grid-gap: 2px;
   grid-template-columns: repeat(10, 61px);
   grid-template-rows: repeat(6, 46.5px);
   grid-template-areas: 'photo0 photo0 photo2 photo2 photo2 photo2 photo3 photo3 photo4 photo4'
