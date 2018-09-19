@@ -43,9 +43,16 @@ export const Wrapper = styled.div`
 `;
 
 export const Photos = styled.div`
-  grid-area: ${props => props.photoNum};
-  height: ${props => props.photoNum}
-  width: 200px;
+  grid-area: ${props => props.photoNum}; 
+`;
+
+export const Image = styled.img`
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  height: 500px;
+  width: 500px;
+
 `;
 
 

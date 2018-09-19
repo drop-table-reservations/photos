@@ -7,12 +7,10 @@ import {
 const Header = props => (
   <div>
     <HeaderPhotoAmount>
-    <h3 className="header-photo">
       {`${props.Photos.length} Photos `}
       <HeaderViewMore>
-        <span className="header-view-more">View more</span>
+        View more
       </HeaderViewMore>
-    </h3>
     </HeaderPhotoAmount>
   </div >
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Carousel from './carousel.jsx';
-import { Photos } from './style-9.jsx';
+import { Photos, Image } from './style-9.jsx';
 
 class PhotoEntry extends React.Component {
   constructor(props) {
@@ -23,9 +23,7 @@ class PhotoEntry extends React.Component {
   render() {
     return (
       <Photos photoNum={`photo${this.props.photo.id}`}>
-      
-      <img id="photos" src={this.props.photo.url} alt="" style={{maxWidth: '100%', maxHeight: '100%'}}/>
-    
+        <Image photoNum={`photo${this.props.photo.id}`} src={this.props.photo.url} alt="" />
       </Photos>
     );
   }
