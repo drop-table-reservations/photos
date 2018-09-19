@@ -1,15 +1,21 @@
 import React from 'react';
+import {
+  HeaderPhotoAmount,
+  HeaderViewMore
+} from './style-9';
 
 const Header = props => (
   <div>
-    <h3
-      className="header-photo"
-    >
+    <HeaderPhotoAmount>
       {`${props.Photos.length} Photos `}
-      <span className="header-view-more">View more</span>
-    </h3>
-  </div>
+      <HeaderViewMore>
+        View more
+      </HeaderViewMore>
+    </HeaderPhotoAmount>
+  </div >
 );
 
 
 export default Header;
+
+

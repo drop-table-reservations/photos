@@ -1,8 +1,15 @@
 import React from 'react';
 import axios from 'axios';
-import PhotoList from './photo-list.jsx';
-import Header from './header.jsx';
+import PhotoList from './photo-list';
+import Header from './header';
+import { PhotoBody } from './style-9.jsx'
+import { injectGlobal } from 'styled-components';
+import reset from 'styled-reset';
 // import Carousel from './carousel.jsx';
+injectGlobal`
+  ${reset}
+`
+
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +21,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/restaurants/5b9869ddad84de5857f7783d/photos').then((data) => {
+    axios.get('http://localhost:3005/restaurants/52566848/photos').then((data) => {
       console.log(data.data);
       this.setState({
         photos: data.data,
@@ -22,17 +29,22 @@ class App extends React.Component {
     });
   }
 
+ 
+
   render() {
+  
     return (
-      <div className="photo-gallery-body">
-        <div>
-          <Header Photos={this.state.photos} />
+      <PhotoBody>
+        <div className="photo-gallery-body">
+          <div>
+            <Header Photos={this.state.photos} />
+          </div>
+          <div>
+            <PhotoList Photos={this.state.photos} />
+          </div>
+          {/* <Carousel Photos={this.state.photos} /> */}
         </div>
-        <div>
-          <PhotoList Photos={this.state.photos} />
-        </div>
-        {/* <Carousel Photos={this.state.photos} /> */}
-      </div>
+      </PhotoBody>
     );
   }
 }

@@ -22,10 +22,7 @@ const photosSchema = new mongoose.Schema({
 
 // Schema for restaurants
 const restaurantsSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    // unique: true
-  },
+  _id: Number,
   name: String,
   photos: [photosSchema],
 });
@@ -41,7 +38,7 @@ for (let i = 0; i < restaurantLength; i += 1) {
   const restaurantName = restaurantInfo.restaurantObj.restaurants[i].name;
 
   const restaurant = {
-    id: restaurantId,
+    _id: restaurantId,
     name: restaurantName,
     photos: [],
   };

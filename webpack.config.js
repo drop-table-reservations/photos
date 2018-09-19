@@ -14,13 +14,17 @@ module.exports = {
       include: SRC_DIR,
       exclude: /node_modules/,
       use: [{
-        test: /\.css$/, loader: "style-loader!css-loader"
-      }, {
         loader: 'babel-loader',
         query: {
           babelrc: false,
           presets: ['@babel/react', '@babel/preset-env'],
+          plugins: ["styled-components"]
         }
+      }]
+    },{
+      test:/\.css?/,
+      use: [{
+        loader: ['css-loader', 'style-loader']
       }]
     }]
   },
