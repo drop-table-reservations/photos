@@ -18,7 +18,13 @@ module.exports = {
         query: {
           babelrc: false,
           presets: ['@babel/react', '@babel/preset-env'],
+          plugins: ["styled-components"]
         }
+      }]
+    },{
+      test:/\.css?/,
+      use: [{
+        loader: ['css-loader', 'style-loader']
       }]
     }]
   },

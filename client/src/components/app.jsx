@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import PhotoList from './photo-list.jsx';
-import Header from './header.jsx';
+import PhotoList from './photo-list';
+import Header from './header';
+import { PhotoBody } from './style-9.jsx'
 // import Carousel from './carousel.jsx';
 
 class App extends React.Component {
@@ -24,15 +25,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="photo-gallery-body">
-        <div>
-          <Header Photos={this.state.photos} />
+      <PhotoBody>
+        <div className="photo-gallery-body">
+          <div>
+            <Header Photos={this.state.photos} />
+          </div>
+          <div>
+            <PhotoList Photos={this.state.photos} />
+          </div>
+          {/* <Carousel Photos={this.state.photos} /> */}
         </div>
-        <div>
-          <PhotoList Photos={this.state.photos} />
-        </div>
-        {/* <Carousel Photos={this.state.photos} /> */}
-      </div>
+      </PhotoBody>
     );
   }
 }
