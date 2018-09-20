@@ -28,9 +28,8 @@ class App extends React.Component {
     this.handleExitClick = this.handleExitClick.bind(this);
   }
   
-  //http://localhost:3005/restaurants/52566848/photo
   componentDidMount() {
-    axios.get(`http://localhost:3005/restaurants/21066228/photos`).then((data) => {
+    axios.get(`/api/restaurants/${window.location.pathname}/photos`).then((data) => {
       console.log(data.data);
       this.setState({
         photos: data.data,
