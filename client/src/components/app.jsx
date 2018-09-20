@@ -4,6 +4,7 @@ import PhotoList from './photo-list';
 import Header from './header';
 import Arrow from './arrow';
 import ImageSlide from './image-slide'
+import Footer from './carousel-footer'
 import { PhotoBody } from './style-9'
 import { injectGlobal } from 'styled-components';
 import reset from 'styled-reset';
@@ -23,11 +24,15 @@ class App extends React.Component {
     };
     this.previousSlide = this.previousSlide.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleCarouselClick = this.handleCarouselClick.bind(this);
+    this.handleHeaderClick = this.handleHeaderClick.bind(this);
+    this.handleExitClick = this.handleExitClick.bind(this);
   }
+  //'http://localhost:3005/restaurants/52566848/photos'
+  ///api/restaurants/${window.location.pathname}/photos
 
   componentDidMount() {
-    axios.get('http://localhost:3005/restaurants/52566848/photos').then((data) => {
+    axios.get(`http://localhost:3005/restaurants/52566848/photos`).then((data) => {
       console.log(data.data);
       this.setState({
         photos: data.data,
@@ -57,10 +62,24 @@ class App extends React.Component {
     });
   }
 
-  handleClick() {
-    console.log('clicked!');
+  handleCarouselClick(id) {
     this.setState({
-      displayModal: 'true'
+      displayModal: 'true',
+      currentImageIndex: id
+    })
+  }
+
+  handleHeaderClick() {
+    console.log('click')
+    this.setState({
+      displayModal: 'true',
+      currentImageIndex: 9
+    })
+  }
+
+  handleExitClick() {
+    this.setState({
+      displayModal: 'false'
     })
   }
 
@@ -72,10 +91,10 @@ class App extends React.Component {
         <PhotoBody>
           <div className="photo-gallery-body">
             <div>
-              <Header Photos={this.state.photos} />
+              <Header Photos={this.state.photos} handleHeaderClick={this.handleHeaderClick} />
             </div>
             <div>
-              <PhotoList Photos={this.state.photos} handleClick={this.handleClick} />
+              <PhotoList Photos={this.state.photos} handleCarouselClick={this.handleCarouselClick} />
             </div>
           </div>
         </PhotoBody>
@@ -88,12 +107,19 @@ class App extends React.Component {
             clickFunction={this.previousSlide}
             glyph="&#9664;" />
 
+          <div className="exit-button" onClick={() => this.handleExitClick()}><span>X</span></div>
+
           <ImageSlide url={this.state.photos[this.state.currentImageIndex].url} />
 
           <Arrow
             direction="right"
             clickFunction={this.nextSlide}
             glyph="&#9654;" />
+
+          <Footer
+            publisher={this.state.photos[this.state.currentImageIndex].publisherName}
+            date={this.state.photos[this.state.currentImageIndex].date} 
+            description={this.state.photos[this.state.currentImageIndex].description}/>
         </div>
       )
     }

@@ -9,7 +9,7 @@ const Header = props => (
     <HeaderPhotoAmount>
       {`${props.Photos.length} Photos `}
       <HeaderViewMore>
-        View more
+        <div onClick={() => props.handleHeaderClick()}>View more</div>
       </HeaderViewMore>
     </HeaderPhotoAmount>
   </div >
