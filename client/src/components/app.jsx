@@ -29,7 +29,7 @@ class App extends React.Component {
   }
   
   componentDidMount() {
-    axios.get(`/api/restaurants/${window.location.pathname}/photos`).then((data) => {
+    axios.get(`/api/restaurants/${window.location.pathname.substring(13)}/photos`).then((data) => {
       console.log(data.data);
       this.setState({
         photos: data.data,

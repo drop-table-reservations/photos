@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-
 app.get('/api/restaurants/:restaurantId/photos', (req, res) => {
   getImages(req.params.restaurantId, (err, data) => {
     if (err) return res.status(500).send(`UNABLE TO GET ${err}`);
