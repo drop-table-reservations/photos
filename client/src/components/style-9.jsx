@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const PhotoBody = styled.div`
   width: 640px;
   margin: auto;
+  margin-bottom: 10px;
 `;
 
 export const HeaderPhotoAmount = styled.h3`
@@ -53,7 +54,7 @@ export const Image = styled.img`
   max-height: 100%;
   height: 500px;
   width: 500px;
-
+  cursor: pointer;
 `;
 
 export const CarouselImage = styled.img`

@@ -16,6 +16,7 @@ db.once('open', () => {
 const photosSchema = new mongoose.Schema({
   id: Number,
   publisherName: String,
+  description: String,
   url: String,
   date: String,
 });
@@ -50,6 +51,7 @@ for (let i = 0; i < restaurantLength; i += 1) {
     const photo = {
       id: y,
       publisherName: faker.name.findName(),
+      description: faker.lorem.words(),
       url: `https://s3-us-west-1.amazonaws.com/hrsf101-food-photos/food-images/food-image-${randomPhotoNumber}.jpg`,
       date: faker.date.between('2005-01-01', '2018-09-22'),
     };

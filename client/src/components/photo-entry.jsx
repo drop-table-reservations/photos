@@ -10,7 +10,7 @@ class PhotoEntry extends React.Component {
   render() {
     return (
       <Photos photoNum={`photo${this.props.photo.id}`}>
-        <Image photoNum={`photo${this.props.photo.id}`} src={this.props.photo.url} alt="" onClick={() => this.props.handleClick()}/>
+        <Image photoNum={`photo${this.props.photo.id}`} src={this.props.photo.url} alt="" onClick={() => this.props.handleClick(this.props.photo.id)}/>
       </Photos>
     );
   }
