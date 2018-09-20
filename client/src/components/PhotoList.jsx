@@ -1,6 +1,6 @@
 import React from 'react';
-import PhotoEntry from './photo-entry';
-import { Wrapper } from './style-9.jsx';
+import PhotoEntry from './PhotoEntry';
+import { Wrapper } from './style-9';
 
 const PhotoList = props => (
   //TO DO: Create conditionals to render 1-9 stylesheets for image length

@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../components/app';
-import PhotoList from '../components/photo-list';
+import PhotoList from '../components/PhotoList';
 import Header from '../components/header';
 
 Enzyme.configure({ adapter: new Adapter() });
