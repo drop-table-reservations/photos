@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 
 export const PhotoBody = styled.div`
-  width: 618px;
+  width: 640px;
+  margin: auto;
 `;
 
 export const HeaderPhotoAmount = styled.h3`
@@ -29,10 +30,10 @@ export const HeaderViewMore = styled.span`
 
 export const Wrapper = styled.div`
   height: 280px;
-  width: 610px;
+  width: 640px;
   display: grid;
   grid-gap: 2px;
-  grid-template-columns: repeat(10, 61px);
+  grid-template-columns: repeat(10, 62.1px);
   grid-template-rows: repeat(6, 46.5px);
   grid-template-areas: 'photo0 photo0 photo2 photo2 photo2 photo2 photo3 photo3 photo4 photo4'
                       'photo0 photo0 photo2 photo2 photo2 photo2 photo3 photo3 photo4 photo4'
@@ -53,6 +54,20 @@ export const Image = styled.img`
   height: 500px;
   width: 500px;
 
+`;
+
+export const CarouselImage = styled.img`
+	height: 100%;
+	width: 100%;
+	transition: background-image .3s ease-in-out;
+`;
+
+export const SlideArrow = styled.div`
+  color: blue;
+	cursor: pointer;
+	font-size: 2rem;
+	position: fixed;
+	top: 50%;
 `;
 
 

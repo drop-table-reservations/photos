@@ -20,7 +20,6 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => res.send('WE ARE CONNECTED!!'));
 
 app.get('/restaurants/:restaurantId/photos', (req, res) => {
-  // console.log("THIS IS REQ==="+req.params.restaurantId)
   getImages(req.params.restaurantId, (err, data) => {
     if (err) return res.status(500).send(`UNABLE TO GET ${err}`);
     return res.status(200).send(data);

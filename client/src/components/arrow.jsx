@@ -1,12 +1,14 @@
 import React from 'react';
+import './style-9.css'
 
-const Arrow = (direction, clickFunction, glyph) => (
+const Arrow = ({direction, clickFunction, glyph}) => (
   <div
     className={`slide-arrow ${direction}`}
-    onClick={clickFunction}
+    onClick={ clickFunction }
   >
-    {glyph}
+    { glyph }
   </div>
+
 );
 
 export default Arrow;

@@ -22,10 +22,9 @@ module.exports = {
         }
       }]
     },{
-      test:/\.css?/,
-      use: [{
-        loader: ['css-loader', 'style-loader']
-      }]
+      test:/\.css$/,
+      // loader: ['css-loader', 'style-loader']
+      loader: ['style-loader', 'css-loader']
     }]
   },
   resolve: {
