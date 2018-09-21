@@ -28,3 +28,7 @@ app.get('/api/restaurants/:restaurantId/photos', (req, res) => {
 
 const PORT = 3005;
 app.listen(PORT, () => console.log(`LISTENING ON PORT ${PORT}`));
+
+app.get('/bundle.js', (req, res) => {
+  res.sendFile(path.resolve('client/dist/bundle.js'));
+});

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const PhotoBody = styled.div`
   width: 640px;
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 `;
 
 export const HeaderPhotoAmount = styled.h3`
@@ -14,7 +14,7 @@ export const HeaderPhotoAmount = styled.h3`
   color: #333;
   border-bottom: 1px solid #e1e1e1;
   padding-bottom: 16px;
-  margin: 0 0 16px 0;
+  margin: 50px 0 16px 0;
   display: flex;
   justify-content: space-between;
 `;
