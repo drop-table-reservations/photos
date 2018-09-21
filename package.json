@@ -10,8 +10,12 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "seed-db": "node database/index.js",
-    "test": "jest"
+    "seed-db": "node database/seed.js",
+    "test": "jest",
+    "start": "webpack-dev-server --open --config webpack.dev.js --watch",
+    "build": "webpack --config webpack.prod.js --watch",
+    "build-dev": "webpack --config webpack.dev.js --watch"
+
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -52,6 +56,7 @@
     "style-loader": "^0.23.0",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
-    "webpack-command": "^0.4.1"
+    "webpack-command": "^0.4.1",
+    "webpack-merge": "^4.1.4"
   }
 }

@@ -1,10 +1,9 @@
-const model = require('./index.js');
+const { Restaurant } = require('./index.js');
 
 
 const getImages = (id, callback) => {
-  model.Restaurant.findById(id, (err, data) => {
+  Restaurant.findById(id, (err, data) => {
     if (err) callback(err, null);
-    // console.log("DATAPHOTOS" + data)
     callback(null, data.photos);
   });
 };

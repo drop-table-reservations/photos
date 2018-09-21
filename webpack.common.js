@@ -21,9 +21,8 @@ module.exports = {
           plugins: ["styled-components"]
         }
       }]
-    },{
-      test:/\.css$/,
-      // loader: ['css-loader', 'style-loader']
+    }, {
+      test: /\.css$/,
       loader: ['style-loader', 'css-loader']
     }]
   },

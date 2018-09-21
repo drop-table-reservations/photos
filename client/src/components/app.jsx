@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import PhotoList from './photo-list';
-import Header from './header';
-import Arrow from './arrow';
-import ImageSlide from './image-slide'
-import Footer from './carousel-footer'
+import PhotoList from './PhotoList';
+import Header from './Header';
+import Arrow from './Arrow';
+import ImageSlide from './ImageSlide'
+import Footer from './Footer'
 import { PhotoBody } from './style-9'
 import { injectGlobal } from 'styled-components';
 import reset from 'styled-reset';
@@ -12,14 +12,13 @@ injectGlobal`
   ${reset}
 `
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       photos: [],
-      displayModal: 'false',
+      displayModal: false,
       currentImageIndex: 0,
     };
     this.previousSlide = this.previousSlide.bind(this);
@@ -28,11 +27,9 @@ class App extends React.Component {
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
     this.handleExitClick = this.handleExitClick.bind(this);
   }
-  //'http://localhost:3005/restaurants/52566848/photos'
-  ///api/restaurants/${window.location.pathname}/photos
-
+  
   componentDidMount() {
-    axios.get(`http://localhost:3005/restaurants/52566848/photos`).then((data) => {
+    axios.get(`/api/restaurants/${window.location.pathname.substring(13, 21)}/photos`).then((data) => {
       console.log(data.data);
       this.setState({
         photos: data.data,
@@ -64,7 +61,7 @@ class App extends React.Component {
 
   handleCarouselClick(id) {
     this.setState({
-      displayModal: 'true',
+      displayModal: true,
       currentImageIndex: id
     })
   }
@@ -72,21 +69,21 @@ class App extends React.Component {
   handleHeaderClick() {
     console.log('click')
     this.setState({
-      displayModal: 'true',
+      displayModal: true,
       currentImageIndex: 9
     })
   }
 
   handleExitClick() {
     this.setState({
-      displayModal: 'false'
+      displayModal: false
     })
   }
 
 
 
   render() {
-    if (this.state.displayModal === 'false') {
+    if (this.state.displayModal === false) {
       return (
         <PhotoBody>
           <div className="photo-gallery-body">
@@ -99,7 +96,7 @@ class App extends React.Component {
           </div>
         </PhotoBody>
       );
-    } else if (this.state.displayModal === 'true') {
+    } else if (this.state.displayModal === true) {
       return (
         <div className="carousel">
           <Arrow
