@@ -4,10 +4,10 @@ import {
   HeaderViewMore,
 } from './style-9';
 
-const Header = { Photos } => (
+const Header = props => (
   <div>
     <HeaderPhotoAmount>
-      {`${Photos.length} Photos `}
+      {`${props.Photos.length} Photos `}
       <HeaderViewMore>
         <div onClick={() => props.handleHeaderClick()}>View more</div>
       </HeaderViewMore>
