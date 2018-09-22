@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// mongoose.connect('mongodb://localhost:27017/DropTablePhotos');
 mongoose.connect('mongodb://nguyend08:hrsf101@ds211143.mlab.com:11143/photos');
 
 

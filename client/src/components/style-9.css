@@ -11,7 +11,6 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-
 .image-slide {
   height: 590px;
   width: 590px;
@@ -31,7 +30,6 @@
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-  
 }
 
 .slide-arrow:hover {
@@ -55,10 +53,6 @@
 }
 
 .exit-button {
-  /* padding-bottom: 10px;
-  float: right; */
-  font-family: icons;
-  speak: none;
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
@@ -68,7 +62,7 @@
   -moz-osx-font-smoothing: grayscale;
   content: "U";
   color: #666;
-  font-size: 1.2rem;
+  font-size: 2rem;
   line-height: 2;
   position: absolute;
   text-align: center;

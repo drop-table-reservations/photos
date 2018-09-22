@@ -1,16 +1,17 @@
 import React from 'react';
 import axios from 'axios';
+import { injectGlobal } from 'styled-components';
+import reset from 'styled-reset';
 import PhotoList from './PhotoList';
 import Header from './Header';
 import Arrow from './Arrow';
 import ImageSlide from './ImageSlide';
 import Footer from './Footer';
 import { PhotoBody } from './style-9';
-import { injectGlobal } from 'styled-components';
-import reset from 'styled-reset';
+
 injectGlobal`
   ${reset}
-`
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -63,24 +64,28 @@ class App extends React.Component {
   handleCarouselClick(id) {
     this.setState({
       displayModal: true,
-      currentImageIndex: id
-    })
+      currentImageIndex: id,
+    });
   }
 
   handleHeaderClick() {
-    console.log('click')
-    this.setState({
-      displayModal: true,
-      currentImageIndex: 9
-    })
+    if (this.state.photos.length < 9) {
+      this.setState({
+        displayModal: false,
+      });
+    } else {
+      this.setState({
+        displayModal: true,
+        currentImageIndex: 9,
+      });
+    }
   }
 
   handleExitClick() {
     this.setState({
-      displayModal: false
-    })
+      displayModal: false,
+    });
   }
-
 
 
   render() {
@@ -97,15 +102,16 @@ class App extends React.Component {
           </div>
         </PhotoBody>
       );
-    } else if (this.state.displayModal === true) {
+    } if (this.state.displayModal === true) {
       return (
         <div className="carousel">
           <Arrow
             direction="left"
             clickFunction={this.previousSlide}
-            glyph="&#9664;" />
+            glyph="&#9664;" 
+          />
 
-          <div className="exit-button" onClick={() => this.handleExitClick()}><span>X</span></div>
+          <div className="exit-button" onClick={() => this.handleExitClick()}><span><i class="far fa-times-circle"></i></span></div>
 
           <ImageSlide url={this.state.photos[this.state.currentImageIndex].url} />
 
@@ -116,10 +122,10 @@ class App extends React.Component {
 
           <Footer
             publisher={this.state.photos[this.state.currentImageIndex].publisherName}
-            date={this.state.photos[this.state.currentImageIndex].date} 
-            description={this.state.photos[this.state.currentImageIndex].description}/>
+            date={this.state.photos[this.state.currentImageIndex].date}
+            description={this.state.photos[this.state.currentImageIndex].description} />
         </div>
-      )
+      );
     }
   }
 }

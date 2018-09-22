@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
+const moment = require('moment');
 const restaurantInfo = require('../restaurants.js');
 
 mongoose.connect('mongodb://nguyend08:hrsf101@ds211143.mlab.com:11143/photos');
@@ -43,6 +44,7 @@ for (let i = 0; i < restaurantLength; i += 1) {
     photos: [],
   };
 
+
   // this helps to randomize the amount/type of photos per restaurant, then adds into photos array
   const randomAmountOfPhotos = Math.ceil(Math.random() * (15 - 5) + 5);
   for (let y = 0; y < randomAmountOfPhotos; y += 1) {
@@ -52,7 +54,7 @@ for (let i = 0; i < restaurantLength; i += 1) {
       publisherName: faker.name.findName(),
       description: faker.lorem.words(),
       url: `https://s3-us-west-1.amazonaws.com/hrsf101-food-photos/food-images/food-image-${randomPhotoNumber}.jpg`,
-      date: faker.date.between('2005-01-01', '2018-09-22'),
+      date: moment().format('MMMM Do YYYY'),
     };
     restaurant.photos.push(photo);
   }

@@ -1,21 +1,19 @@
 import React from 'react';
 import {
   HeaderPhotoAmount,
-  HeaderViewMore
+  HeaderViewMore,
 } from './style-9';
 
-const Header = props => (
+const Header = { Photos } => (
   <div>
     <HeaderPhotoAmount>
-      {`${props.Photos.length} Photos `}
+      {`${Photos.length} Photos `}
       <HeaderViewMore>
         <div onClick={() => props.handleHeaderClick()}>View more</div>
       </HeaderViewMore>
     </HeaderPhotoAmount>
-  </div >
+  </div>
 );
 
 
 export default Header;
-
-

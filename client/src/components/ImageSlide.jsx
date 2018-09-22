@@ -1,5 +1,5 @@
 import React from 'react';
-import './style-9.css'
+import './style-9.css';
 
 const ImageSlide = ({ url }) => {
   const styles = {
