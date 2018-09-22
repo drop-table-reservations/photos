@@ -3,9 +3,9 @@ import axios from 'axios';
 import PhotoList from './PhotoList';
 import Header from './Header';
 import Arrow from './Arrow';
-import ImageSlide from './ImageSlide'
-import Footer from './Footer'
-import { PhotoBody } from './style-9'
+import ImageSlide from './ImageSlide';
+import Footer from './Footer';
+import { PhotoBody } from './style-9';
 import { injectGlobal } from 'styled-components';
 import reset from 'styled-reset';
 injectGlobal`
@@ -27,7 +27,8 @@ class App extends React.Component {
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
     this.handleExitClick = this.handleExitClick.bind(this);
   }
-  
+
+
   componentDidMount() {
     axios.get(`/api/restaurants/${window.location.pathname.substring(13, 21)}/photos`).then((data) => {
       console.log(data.data);
