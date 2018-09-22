@@ -1,5 +1,7 @@
 const express = require('express');
 
+const path = require('path');
+
 const app = express();
 
 const cors = require('cors');
@@ -9,7 +11,7 @@ const bodyParser = require('body-parser');
 const { getImages } = require('../database/helper.js');
 
 app.use(cors());
-app.use(express.static(`${__dirname}/../client/dist`));
+// app.use(express.static(`${__dirname}/../client/dist`));
 app.use('/restaurants/:restaurantId', express.static(`${__dirname}/../client/dist`));
 
 app.use(express.static(`${__dirname}/../client/src/styles`));

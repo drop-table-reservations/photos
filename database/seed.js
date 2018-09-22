@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const faker = require('faker');
 const restaurantInfo = require('../restaurants.js');
 
-mongoose.connect('mongodb://localhost:27017/DropTablePhotos');
+mongoose.connect('mongodb://nguyend08:hrsf101@ds211143.mlab.com:11143/photos');
 
 const db = mongoose.connection;
 
