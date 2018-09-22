@@ -14,13 +14,14 @@ app.use(cors());
 // app.use(express.static(`${__dirname}/../client/dist`));
 app.use('/restaurants/:restaurantId', express.static(`${__dirname}/../client/dist`));
 
-app.use(express.static(`${__dirname}/../client/src/styles`));
+// app.use(express.static(`${__dirname}/../client/src/styles`));
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
 app.use(bodyParser.json());
 
 app.get('/api/restaurants/:restaurantId/photos', (req, res) => {
+
   getImages(req.params.restaurantId, (err, data) => {
     if (err) return res.status(500).send(`UNABLE TO GET ${err}`);
     res.status(200).send(data);
