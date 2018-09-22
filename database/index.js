@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/DropTablePhotos');
+// mongoose.connect('mongodb://localhost:27017/DropTablePhotos');
+mongoose.connect('mongodb://nguyend08:hrsf101@ds211143.mlab.com:11143/photos');
+
 
 const db = mongoose.connection;
 
@@ -30,6 +32,3 @@ const restaurantsSchema = new mongoose.Schema({
 const Restaurant = mongoose.model('Restaurant', restaurantsSchema);
 
 module.exports.Restaurant = Restaurant;
-
-
-
