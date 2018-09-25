@@ -46,7 +46,7 @@ for (let i = 0; i < restaurantLength; i += 1) {
 
 
   // this helps to randomize the amount/type of photos per restaurant, then adds into photos array
-  const randomAmountOfPhotos = Math.ceil(Math.random() * (15 - 5) + 5);
+  const randomAmountOfPhotos = Math.ceil(Math.random() * (15 - 5) + 10);
   for (let y = 0; y < randomAmountOfPhotos; y += 1) {
     const randomPhotoNumber = Math.floor(Math.random() * 80);
     const photo = {
@@ -54,7 +54,7 @@ for (let i = 0; i < restaurantLength; i += 1) {
       publisherName: faker.name.findName(),
       description: faker.lorem.words(),
       url: `https://s3-us-west-1.amazonaws.com/hrsf101-food-photos/food-images/food-image-${randomPhotoNumber}.jpg`,
-      date: moment().format('MMMM Do YYYY'),
+      date: moment().format('MMMM Do YYYY').range(),
     };
     restaurant.photos.push(photo);
   }

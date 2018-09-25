@@ -32,7 +32,6 @@ class App extends React.Component {
 
   componentDidMount() {
     axios.get(`/api/restaurants/${window.location.pathname.substring(13, 21)}/photos`).then((data) => {
-      console.log(data.data);
       this.setState({
         photos: data.data,
       });
@@ -40,7 +39,8 @@ class App extends React.Component {
   }
 
   previousSlide() {
-    const lastIndex = this.state.photos.length - 1;
+    const { photos } = this.state;
+    const lastIndex = photos.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === 0;
     const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
@@ -51,7 +51,8 @@ class App extends React.Component {
   }
 
   nextSlide() {
-    const lastIndex = this.state.photos.length - 1;
+    const { photos } = this.state;
+    const lastIndex = photos.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;
     const index = shouldResetIndex ? 0 : currentImageIndex + 1;
@@ -69,7 +70,8 @@ class App extends React.Component {
   }
 
   handleHeaderClick() {
-    if (this.state.photos.length < 9) {
+    const { photos } = this.state;
+    if (photos.length < 9) {
       this.setState({
         displayModal: false,
       });
@@ -89,41 +91,44 @@ class App extends React.Component {
 
 
   render() {
-    if (this.state.displayModal === false) {
+    const { photos, currentImageIndex, displayModal } = this.state;
+    if (displayModal === false) {
       return (
         <PhotoBody>
           <div className="photo-gallery-body">
             <div>
-              <Header Photos={this.state.photos} handleHeaderClick={this.handleHeaderClick} />
+              <Header Photos={photos} handleHeaderClick={this.handleHeaderClick} />
             </div>
             <div>
-              <PhotoList Photos={this.state.photos} handleCarouselClick={this.handleCarouselClick} />
+              <PhotoList Photos={photos} handleCarouselClick={this.handleCarouselClick} />
             </div>
           </div>
         </PhotoBody>
       );
-    } if (this.state.displayModal === true) {
+    } if (displayModal === true) {
       return (
         <div className="carousel">
           <Arrow
             direction="left"
             clickFunction={this.previousSlide}
-            glyph="&#9664;" 
+            glyph="&#9664;"
           />
 
           <div className="exit-button" onClick={() => this.handleExitClick()}><span><i class="far fa-times-circle"></i></span></div>
 
-          <ImageSlide url={this.state.photos[this.state.currentImageIndex].url} />
+          <ImageSlide url={photos[currentImageIndex].url} />
 
           <Arrow
             direction="right"
             clickFunction={this.nextSlide}
-            glyph="&#9654;" />
+            glyph="&#9654;"
+          />
 
           <Footer
-            publisher={this.state.photos[this.state.currentImageIndex].publisherName}
-            date={this.state.photos[this.state.currentImageIndex].date}
-            description={this.state.photos[this.state.currentImageIndex].description} />
+            publisher={photos[currentImageIndex].publisherName}
+            date={photos[currentImageIndex].date}
+            description={photos[currentImageIndex].description}
+          />
         </div>
       );
     }
