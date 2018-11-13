@@ -1,6 +1,6 @@
 # Drop Table Reservations
 
-> This project was to clone a few modules on the Open Table website.  The three modules we focused on were the overview, photos, and reviews section of the summary page of any certain restaurant.
+> This project was to clone a few modules on the Open Table website.  The three modules we focused on were the overview, photos, and reviews section of the summary page of any certain restaurant.  The module I focused on was the photos section.
 
 ## Related Projects
 

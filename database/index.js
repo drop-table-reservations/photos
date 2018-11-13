@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://nguyend08:hrsf101@ds211143.mlab.com:11143/photos');
+// mongoose.connect('mongodb://localhost/test');
+
 
 
 const db = mongoose.connection;
