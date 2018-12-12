@@ -7,5 +7,5 @@ const getImages = (id, callback) => {
     callback(null, data.photos);
   });
 };
-
+ 
 module.exports.getImages = getImages;
